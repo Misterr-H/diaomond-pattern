@@ -1,25 +1,59 @@
-#include<iostream>
-#include<cstdlib>
+#include <iostream>
+
 using namespace std;
 
-int main() {
+int main()
+{
     int n;
-    cout<<"Enter number: ";
+    cout<<"Enter the number\n";
     cin>>n;
-    for(int i=1; i<=(n-1)*2 + 1; i++) {
-        for(int j=1; j<=(n-1)*2 + 1; j++) {
-            if(n-i-j>=0 || j>n && j-i>n-1 || i>n && n-(i-(i-n)*2)-j>=0 || i>n && j>n && j-(i-(i-n)*2)>=n) {
-                cout<<" ";
-            }
-            else 
-            if(j>n && abs(j)-i<=n-1) {
-                cout<<char('Z'-abs(n-j));
-            }
-            else 
-            cout<<char('Z'-(n-j));
-        }
-        cout<<endl;
+    int ch;
+    cout<<"Enter your choice to print diamond shape\n";
+    cout<<"1. *\n2. +\n3. $\n4. Your own choice\n";
+    cin>>ch;
+    char h;
+    switch(ch)
+    {
+        case 1:
+                h='*';
+                
+                break;
+        case 2:
+                h='+';
+                
+                break;
+        case 3:
+                h='$';
+                
+                break;
+        case 4:
+                cout<<"Enter your symbol/alphabet\n";
+                cin>>h;
+                
+                break;
     }
-
+    int space;
+    
+    int c, i,j;
+    space = n - 1;
+    for(i = 1; i<=n; i++)
+    {
+        for (j = 1; j<=space; j++)
+            cout<<" ";
+        space--;
+        for (j = 1; j<= 2*i-1; j++)
+            cout<<h;
+            cout<<"\n";
+    }
+    space = 1;
+    for(i = 1; i<= n - 1; i++)
+    {
+        for (j = 1; j<= space; j++)
+            cout<<" ";
+        space++;
+        for (j = 1 ; j<= 2*(n-i)-1; j++)
+            cout<<h;
+        cout<<"\n";
+    }
     return 0;
 }
